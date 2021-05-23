@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{THE_REQUEST} ^.*index.php.*
+RewriteRule ^(.*)index.php(.*)$ $1$2 [NC,R=301,L]
+
+<Files .htpasswd>
+   deny from all
+</Files>
