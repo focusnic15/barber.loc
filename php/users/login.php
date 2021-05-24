@@ -1,21 +1,22 @@
 <?php
-	require $_SERVER['DOCUMENT_ROOT'] . '/php/db_connect.php';
-	session_start();
+require $_SERVER['DOCUMENT_ROOT'] . '/php/init.php';
 
-	$login = $_POST['userLogin'];
-	$password = md5($_POST['userPass']);
+session_init();
 
-	$result = $mysqli->query("SELECT * FROM users WHERE `login` = `$login` AND `password` = `$password`");
-	if (mysqli_num_rows($result) > 0) {
-		$_SESSION['user'] = [
-			"id" => $user['id'],
-			"name" => $user['name'],
-			"phone" => $user['phone']
-		];
+if (!empty($_POST)) {
+    $login = $_POST['userLogin'];
+    $password = md5($_POST['userPass']);
 
-
-	}
-	else {
-		$_SESSION['message'] = 'Не верный логин или пароль';
-		header('Location:'.$_SESSION['DOCUMENT_ROOT'].'/signInUp/signIn.php')
-	}
+    $result = $mysqli->query("SELECT * FROM users WHERE login = '$login' AND password = '$password';");
+    if (mysqli_num_rows($result) > 0) {
+        $user = $result->fetch_array(MYSQLI_ASSOC);
+        $_SESSION['user'] = [
+            "id" => $user['id'],
+            "name" => $user['name'],
+            "phone" => $user['phone']
+        ];
+        $_SESSION['message'] = 'Авторизация прошла успешно';
+    } else {
+        $_SESSION['message'] = 'Не верный логин или пароль';
+    }
+}

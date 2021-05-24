@@ -1,9 +1,4 @@
-<!-- Подключить запрос на добавление в БД пользователь (user) -->
-<!-- Авторизация -->
-<?php
-session_start();
-?>
-
+<?php require  $_SERVER['DOCUMENT_ROOT'] . '/php/users/login.php'; ?>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 <div class="overlay">
@@ -31,12 +26,10 @@ session_start();
 					<p>
 						У вас нет аккаунта? - <a href="signUp.php">зарегестрируйтесь</a>
 					</p>
-					<?php
-						if (isset($_SESSION['message'])) {
-						 	echo '<p class = "msg"> . $_SESSION['message'] . </p>';
-						}
-						unset($_SESSION['message']);
-					?>
+					<?php if (isset($_SESSION['message'])): ?>
+                        <p class="msg"> <?= $_SESSION['message'] ?> </p>
+                    <? endif; ?>
+                    <?php unset($_SESSION['message']); ?>
 				</form>
 			</div>
 		</div>

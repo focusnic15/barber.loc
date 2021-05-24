@@ -1,8 +1,4 @@
-<!-- Регистрация -->
-<?php
-session_start()
-?>
-
+<?php require  $_SERVER['DOCUMENT_ROOT'] . '/php/users/registr.php'; ?>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 <div class="overlay">
@@ -37,12 +33,10 @@ session_start()
 						У вас есть аккаунт? - <a href="signIn.php">авторизируйтесь</a>
 					</p>
 					<p class="msg">
-						<?php
-							if (isset($_SESSION['message'])) {
-							 	echo '<p class = "msg"> . $_SESSION['message'] . </p>';
-							}
-							unset($_SESSION['message']);
-						?>
+						<?php if (isset($_SESSION['message'])): ?>
+							<p class="msg"> <?= $_SESSION['message'] ?></p>
+                        <?php endif; ?>
+                        <?php unset($_SESSION['message']); ?>
 					</p>
 				</form>
 			</div>
