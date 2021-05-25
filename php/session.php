@@ -13,8 +13,8 @@ function _session_regenerate_id() {
 }
 
 function session_init() {
-    $sid = $_COOKIE['PHPSESSID'] ?: '';
-    session_id($sid);
+    //$sid = $_COOKIE['PHPSESSID'] ?: '';
+    //session_id($sid);
     session_start();
     if (!empty($_SESSION['deleted_time']) && $_SESSION['deleted_time'] < time() - 180) {
         _session_regenerate_id();

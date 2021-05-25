@@ -20,9 +20,7 @@ if (!empty($_POST)) {
         ];
         $_SESSION['message'] = 'Авторизация прошла успешно';
         session_write_close();
-        header('Location: /admin/index.php');
-        
-        
+        header('Location:' . '/admin');
     }
     else{
         $check_user = $mysqli->query("SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password' AND `rights` IS NULL;");
@@ -37,7 +35,7 @@ if (!empty($_POST)) {
             ];
             $_SESSION['message'] = 'Авторизация прошла успешно';
             session_write_close();
-            header('Location: ../../user_index.php');
+            header('Location:' . '/user_index.php');
         }
         else{
             $_SESSION['message'] = 'Не верный логин или пароль';
