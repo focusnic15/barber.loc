@@ -101,7 +101,10 @@
 					<h1>Карта филиалов</h1>
 				</p>
 				<img src="img/sheme/bg-sheme.png" width="1080" height="650">
+				<p style="font-family: 'ProximaNova_bold', sans-serif; font-size: 25px;">Новый филиал откроется через</p>
 			</div>
+			<div id="timer"></div>
+    		<script src="script.js"></script>
 		</div>
 	</section>
 	<?php include "foot-block/foot.php" ?>

@@ -1,4 +1,10 @@
-<?php require  $_SERVER['DOCUMENT_ROOT'] . '/php/users/login.php'; ?>
+<?php 
+session_start();require  $_SERVER['DOCUMENT_ROOT'] . '/php/users/login.php'; ?>
+
+<style type="text/css">
+
+</style>
+
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 <div class="overlay">
@@ -17,11 +23,12 @@
 				</div>
 			</div>
 			<div class="widget-content">
+				<div class="widget-form">
 				<form method="POST">
 					<label>Логин</label>
-					<input type="text" name="userLogin">
+					<input type="text" name="userLogin" placeholder="Введите ваше имя">
 					<label>Пароль</label>
-					<input type="password" name="userPass">
+					<input type="password" name="userPass" placeholder="Введите пароль">
 					<button>Авторизироваться</button>
 					<p>
 						У вас нет аккаунта? - <a href="signUp.php">зарегестрируйтесь</a>
@@ -31,6 +38,7 @@
                     <? endif; ?>
                     <?php unset($_SESSION['message']); ?>
 				</form>
+				</div>
 			</div>
 		</div>
 	</div>

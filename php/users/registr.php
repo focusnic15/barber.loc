@@ -10,10 +10,11 @@ if (!empty($_POST)) {
 	$pass = $_POST['userPass'];
 	$pass_confirm = $_POST['userPass2'];
 	if ($pass === $pass_confirm) {
-		$pass = md5($pass);
+		#$pass = md5($pass);
 		$result = $mysqli->query("INSERT INTO users (name, login, phone, password) VALUES ('$name', '$login', '$phone', '$pass');");
 		if ($result) {
 			$_SESSION['message'] = 'Регистрация прошла успешно!';
+			header('Location:'.'/signInUp/signUp');
 		} else {
 			$_SESSION['message'] = 'Ошибка регистрации';
 		}

@@ -5,18 +5,46 @@ session_init();
 
 if (!empty($_POST)) {
     $login = $_POST['userLogin'];
-    $password = md5($_POST['userPass']);
+    $password = $_POST['userPass'];
 
-    $result = $mysqli->query("SELECT * FROM users WHERE login = '$login' AND password = '$password';");
-    if (mysqli_num_rows($result) > 0) {
-        $user = $result->fetch_array(MYSQLI_ASSOC);
-        $_SESSION['user'] = [
-            "id" => $user['id'],
-            "name" => $user['name'],
-            "phone" => $user['phone']
+    $check_admin = $mysqli->query("SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password' AND `rights`= 'admin';");
+    if (mysqli_num_rows($check_admin) > 0) {
+        $admin = mysqli_fetch_assoc($check_admin);
+
+        $_SESSION['user']=[
+            "Nickname"=>$admin['Nickname'],
+            "Email"=>$admin['Email'],   
+            "Login"=>$admin['Login'],
+            "Password"=>$admin['Password'],
+            "id"=>$admin['id']
         ];
         $_SESSION['message'] = 'Авторизация прошла успешно';
-    } else {
-        $_SESSION['message'] = 'Не верный логин или пароль';
+        session_write_close();
+        header('Location: /admin/index.php');
+        
+        
     }
+    else{
+        $check_user = $mysqli->query("SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password' AND `rights` IS NULL;");
+        if (mysqli_num_rows($check_user) > 0) {
+            $user = mysqli_fetch_assoc($check_user);
+             $_SESSION['user']=[
+                "Nickname"=>$user['Nickname'],
+                "Email"=>$user['Email'],    
+                "Login"=>$user['Login'],
+                "Password"=>$user['Password'],
+                "id"=>$user['id']
+            ];
+            $_SESSION['message'] = 'Авторизация прошла успешно';
+            session_write_close();
+            header('Location: ../../user_index.php');
+        }
+        else{
+            $_SESSION['message'] = 'Не верный логин или пароль';
+            session_write_close();
+        }
+    }
+
+    #$result = $mysqli->query("SELECT * FROM users WHERE login = '$login' AND password = '$password';");
+    #$admin = $mysqli->query("SELECT * FROM users WHERE right = admin;");
 }

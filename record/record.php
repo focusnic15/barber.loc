@@ -131,8 +131,8 @@
 										<?php endforeach; ?>
 									</ul>
 								</div>
-								<p><label>Имя клиента</label> <input type="text" name="userName"></p>
-								<p><label>Номер телефона</label> <input type="tel" name="userPhone" placeholder="+7 (123) 456-78-91" pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"></p>
+								<p><label>Имя клиента</label> <input required="" type="text" name="userName"></p>
+								<p><label>Номер телефона</label> <input required="" type="tel" name="userPhone" placeholder="+7 (123) 456-78-91" pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"></p>
                                 <p><label for="date">Выберите дату</label> <input id="datetime" type="datetime-local" name="date"></p>
 								<button>Записаться</button>
 							</form>

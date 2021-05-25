@@ -377,6 +377,13 @@ section {
   display: block;
 }
 
+#timer{
+  text-align: center;
+  font-size:32px;
+  padding-top:50px;
+  color:black;
+}
+
 .galary{
   width: 100%;
   margin-left: 12%;
@@ -395,4 +402,64 @@ section {
 
 .footer-contacts{
 	text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+input {
+  margin: 10px 0;
+  padding: 10px;
+  border: unset;
+  border-bottom: solid #007544;
+  outline: none;
+}
+
+button {
+  width: 160px;
+  height: 30px;
+  text-decoration: none;
+  padding-top: 5px;
+  color: rgb(68.865, 255, 41);
+  text-align: center;
+  line-height: 20px;
+  display: block;
+  margin: 20px auto;
+  font: normal 17px arial;
+}
+
+button:not(.active) {
+  box-shadow: inset 0 1px 1px rgba(43.406, 153, 27, 0.8), inset 0 -1px 0px rgba(77.562, 255, 51, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+  background-image: linear-gradient(rgb(0, 120, 29.25), rgb(40.333, 80, 0));
+  text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 rgb(16.719, 95, 5);
+}
+
+button:not(.active):hover,
+button:not(.active):focus {
+  transition: color 200ms linear, text-shadow 500ms linear;
+  color: #fff;
+  text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 0 10px rgba(223, 206, 228, 0.4), 0 0 2px rgb(26.562, 204, 0);
+}
+button:not(:hover) {
+  transition: 0.6s;
+}
+
+.widget-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'ProximaNova_bold';
+}
+
+a {
+  color:#007544;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+p {
+  margin: 10px 0;
 }

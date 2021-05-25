@@ -10,7 +10,7 @@
 			</div>
 			<div class="phone-block">
 				<a class= "phone-link" href="#">8 800 555 35 35</a>
-				<p><a href="/signInUp/signIn.php">Авторизация</a>
+				<p><a class = "phone-link" href="/signInUp/signIn.php">Авторизация</a>
 			</div>
 		</div>
 		<div class="main-content">
